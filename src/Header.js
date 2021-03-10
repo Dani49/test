@@ -23,10 +23,10 @@ export default function Header(){
     const displayDesktop = () => {
         return <Toolbar className={toolbar}>
             <div>
-            <Link className={menulink} to="/">Home</Link>
-            <Link className={menulink} to="/products">Product</Link>
-            <Link className={menulink} to="/About">About us</Link>
-            <Link className={menulink} to="/Cart">Cart</Link>
+            <Link to="/">Home</Link>
+            <Link to="/products">Product</Link>
+            <Link to="/About">About us</Link>
+            <Link to="/Cart">Cart</Link>
             </div>
             </Toolbar>
     }
