@@ -1,39 +1,44 @@
-import React from "react"
-import {AppBar, Toolbar, makeStyles} from "@material-ui/core"
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
 import {Link} from "react-router-dom"
 
-const useStyles = makeStyles(() => ({
-    header: {
-        backgroundColor: "#bfd1d9"
-    },
 
-    menulink: {
-        paddingRight: "20px",
-        paddingLeft: "20px"
-    },
 
-    toolbar: {
-        display: "flex",
-        justifyContent: "space-between"
-    }
-}))
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+  },
+  menuButton: {
+    marginRight: theme.spacing(4),
+    
+    
+    
+  },
+  title: {
+    flexGrow: 1,
+  },
+}));
 
-export default function Header(){
-    const {header, menulink, toolbar} = useStyles();
-    const displayDesktop = () => {
-        return <Toolbar className={toolbar}>
-            <div>
-            <Link to="/">Home</Link>
-            <Link to="/products">Product</Link>
-            <Link to="/About">About us</Link>
-            <Link to="/Cart">Cart</Link>
-            </div>
-            </Toolbar>
-    }
+export default function ButtonAppBar() {
+  const classes = useStyles();
 
-    return (
-        <header>
-            <AppBar className={header}>{displayDesktop()}</AppBar>
-        </header>
-    )
+  return (
+    <div className={classes.root}>
+      <AppBar position="static">
+        <Toolbar>
+          <Typography variant="h3" className={classes.title}>
+            SuperM
+          </Typography>
+          <Button className={classes.menuButton}><Link to="/">Home</Link></Button>
+          <Button className={classes.menuButton}><Link to="/About">About us</Link></Button>
+          <Button className={classes.menuButton}><Link to="/products">Products</Link></Button>
+          <Button className={classes.menuButton}><Link to="/Cart">Cart</Link></Button>
+        </Toolbar>
+      </AppBar>
+    </div>
+  );
 }
